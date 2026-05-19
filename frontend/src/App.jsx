@@ -40,8 +40,7 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Assume API is running on localhost:8000
-        const res = await fetch('http://localhost:8000/api/products');
+        const res = await fetch('https://ecommerce-web-lilac-two.vercel.app/api/products');
         if (!res.ok) throw new Error('Failed to fetch products');
         const data = await res.json();
         setProducts(data);
@@ -96,7 +95,8 @@ function App() {
     };
 
     try {
-      const res = await fetch('http://localhost:8000/api/orders', {
+      // API Route for Orders fixed here
+      const res = await fetch('https://ecommerce-web-lilac-two.vercel.app/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
@@ -166,7 +166,6 @@ function App() {
                 </button>
               </div>
               <div className="hero-visual glass-panel animate-fade-in" style={{animationDelay: '0.2s', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                 {/* Decorative Hero Element */}
                  <div style={{
                    width: '200px', height: '200px', 
                    borderRadius: '50%', 
@@ -372,7 +371,6 @@ function App() {
         )}
       </div>
       
-      {/* Overlay to close drawer */}
       {isCartOpen && <div style={{position: 'fixed', top:0, left:0, right:0, bottom:0, zIndex: 1000}} onClick={() => setIsCartOpen(false)}></div>}
     </>
   );
