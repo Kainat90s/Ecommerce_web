@@ -20,6 +20,7 @@ app = FastAPI(
     description="FastAPI Backend connected to PostgreSQL (Ecommerce database)",
     version="2.0.0"
 )
+handler = app
 
 # Enable CORS for React Frontend running on Vite
 app.add_middleware(
